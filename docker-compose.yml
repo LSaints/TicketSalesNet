@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=password01
+      - POSTGRES_USER=dev
+      - POSTGRES_DB=DB_ticketsales
+    networks:
+      - ticketsales_network
+
+networks:
+  ticketsales_network:
+    driver: 'bridge'
